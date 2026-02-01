@@ -1,0 +1,19 @@
+{
+  "name": "redis-baraka-chat",
+  "version": "0.1.0",
+  "description": "Live chat server with Postgres and Redis",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "NODE_ENV=development node src/server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "ioredis": "^5.4.1",
+    "pg": "^8.11.5",
+    "speakeasy": "^2.0.0",
+    "ws": "^8.18.0"
+  }
+}
