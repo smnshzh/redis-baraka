@@ -1,7 +1,11 @@
 :root {
   font-family: "Vazirmatn", system-ui, sans-serif;
   color: #0f172a;
-  background: #f8fafc;
+  background: radial-gradient(circle at top, #f8fafc 20%, #e2e8f0 100%);
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
@@ -10,25 +14,72 @@ body {
 }
 
 .app {
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 32px 16px 64px;
   display: grid;
-  gap: 24px;
+  gap: 28px;
 }
 
-header {
-  background: #0f172a;
+.hero {
+  background: linear-gradient(120deg, #0f172a, #1e3a8a);
   color: #fff;
-  padding: 24px;
-  border-radius: 16px;
+  padding: 28px 32px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.2);
 }
 
-.panel {
+.hero h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+}
+
+.hero p {
+  margin: 0;
+  color: #cbd5f5;
+}
+
+.status {
+  background: rgba(255, 255, 255, 0.12);
+  padding: 12px 16px;
+  border-radius: 14px;
+  display: grid;
+  gap: 4px;
+  text-align: right;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.sidebar {
+  display: grid;
+  gap: 20px;
+}
+
+.card {
   background: #fff;
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  border-radius: 18px;
+  padding: 20px 22px;
+  box-shadow: 0 16px 30px rgba(15, 23, 42, 0.08);
+  display: grid;
+  gap: 16px;
+}
+
+.auth-card h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.form-grid {
   display: grid;
   gap: 12px;
 }
@@ -42,9 +93,10 @@ label {
 input,
 textarea {
   border: 1px solid #e2e8f0;
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 10px 12px;
   font-size: 14px;
+  font-family: inherit;
 }
 
 textarea {
@@ -57,19 +109,59 @@ button {
   color: #fff;
   border: none;
   padding: 10px 16px;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
   font-weight: 600;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.25);
 }
 
 button[disabled] {
   background: #94a3b8;
   cursor: not-allowed;
+  box-shadow: none;
+}
+
+button.ghost {
+  background: #e2e8f0;
+  color: #0f172a;
 }
 
 .actions {
   display: flex;
   gap: 12px;
+  flex-wrap: wrap;
+}
+
+.auth-note {
+  margin: 0;
+  padding: 10px 12px;
+  background: #f1f5f9;
+  border-radius: 12px;
+  font-size: 13px;
+  color: #0f172a;
+}
+
+.chat-shell {
+  display: grid;
+  gap: 20px;
+}
+
+.events-card {
+  min-height: 260px;
+}
+
+.events-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  font-size: 14px;
+  color: #64748b;
 }
 
 .events {
@@ -84,6 +176,12 @@ pre {
   padding: 12px;
   background: #0f172a;
   color: #f8fafc;
-  border-radius: 10px;
+  border-radius: 12px;
   font-size: 12px;
+}
+
+@media (max-width: 960px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
 }
