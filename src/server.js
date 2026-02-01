@@ -31,6 +31,13 @@ const redisSubscriber = new Redis({
   port: Number(process.env.REDIS_PORT || 6379),
 });
 
+function logRedisError(clientName, error) {
+  console.error(`[${clientName}] Redis connection error`, error);
+}
+
+redis.on("error", (error) => logRedisError("publisher", error));
+redisSubscriber.on("error", (error) => logRedisError("subscriber", error));
+
 const connectionsByRoom = new Map();
 
 function ensureRoomSet(roomId) {
