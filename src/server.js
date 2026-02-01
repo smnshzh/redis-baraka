@@ -22,12 +22,12 @@ const dbPool = new Pool({
 });
 
 const redis = new Redis({
-  host: process.env.REDIS_HOST || "localhost",
+  host: process.env.REDIS_HOST || "127.0.0.1",
   port: Number(process.env.REDIS_PORT || 6379),
 });
 
 const redisSubscriber = new Redis({
-  host: process.env.REDIS_HOST || "localhost",
+  host: process.env.REDIS_HOST || "127.0.0.1",
   port: Number(process.env.REDIS_PORT || 6379),
 });
 
